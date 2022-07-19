@@ -1,0 +1,8 @@
+.CartWidget{
+    display:flex;
+    float:left;
+}
+.Image{
+    max-width: 35px;
+    max-height: 35px;
+}

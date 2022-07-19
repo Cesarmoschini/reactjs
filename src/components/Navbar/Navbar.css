@@ -14,3 +14,11 @@
     background-color: rgba(248, 218, 172, 0.907);
     color: rgb(117, 36, 6);
 }
+
+.logo{
+    margin-top: 20px;
+    margin-left: 40px;
+    max-width: 100px;
+    max-height: 100px;
+    display: inline-block;
+}
