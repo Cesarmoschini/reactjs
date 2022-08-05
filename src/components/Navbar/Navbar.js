@@ -1,28 +1,21 @@
 import './Navbar.css'
-import Button from '../Button/Button'
 import CartWidget from '../CartWidget/CartWidget'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-
-    const text = 'Se hizo click en el botón'
-    const click = () =>{
-        console.log(text)
-    }
-
     return (
-        <nav className="Navbar">
-            <img className="logo" src="images/capsulas2.png"/>
-            <div>
-                <h1>Seleccionador de cápsulas</h1>
+        <nav className='Navbar'>
+            <Link to='/' className="OptionMenu">
+                Menú principal
+            </Link>
+            <div className="Categories">
+                <Link to='/category/clasico' className="Option">Clásicos</Link>
+                <Link to='/category/suave' className="Option">Suaves</Link>
+                <Link to='/category/intenso' className="Option">Intensos</Link>
             </div>
-            <div>
-                <Button click={click} label = 'Inicio' bgcolor = 'brown'/>
-                <Button click={click} label = 'Productos' bgcolor = 'brown'/> 
-                <Button click={click} label = 'Contacto' bgcolor = 'brown'/>
-                <Button click={click} label = 'Sobre Nosotros' bgcolor = 'brown'/> 
-            </div>
-            <CartWidget/>
+            <CartWidget />
         </nav>
+        
     )
 }
 
