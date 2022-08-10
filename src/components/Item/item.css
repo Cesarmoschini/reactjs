@@ -4,7 +4,7 @@
     padding: 30px;
     margin: 30px;
     font-size: 10px;
-    background-color: rgba(255, 220, 213, 0.751);
+    background-color: rgb(236, 185, 130);
     border: 1px solid #e1e1e1;
     border-radius: 10px;
 }
@@ -58,6 +58,7 @@
 .ItemFooter {
     display: flex;
     justify-content: center;
+
 }
 
 .Option {
@@ -67,7 +68,7 @@
     width: 90px;
     padding: 12px;
     font-size: 12px;
-    background: #ab5e00;
+    background: #8c2f0a;
     border-radius: 8px;
     flex: none;
     display: inline-block;

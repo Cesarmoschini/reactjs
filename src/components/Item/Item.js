@@ -2,7 +2,11 @@ import './item.css'
 import { Link } from 'react-router-dom'
 
 const Item = ({id, name, img, price }) => {
-   
+
+    const handleClick = (e) => {
+        e.stopPropagation()
+    }
+
     return (
         <article className="CardItem">
             <header className="Header">
@@ -19,7 +23,7 @@ const Item = ({id, name, img, price }) => {
                 </p>
             </section>           
             <footer className='ItemFooter'>
-                <Link to={`/detail/${id}`} className='Option'>Ver detalle</Link>
+                <Link to={`/detail/${id}`} className='Option'>Detalle del producto</Link>
             </footer>
         </article>
     )

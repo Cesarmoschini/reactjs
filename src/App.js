@@ -5,6 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
+
 function App() {
 
   return (
@@ -12,12 +13,12 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<ItemListContainer saludo='Listado de cápsulas'/>}/>
-          <Route path='/category/:categoryId' element={<ItemListContainer saludo='Listado de cápsulas filtradas'/>} />
+          <Route path='/' element={<ItemListContainer greeting='Listado de todos los productos'/>}/>
+          <Route path='/category/:categoryId' element={<ItemListContainer greeting='Listado filtrado'/>} />
           <Route path='/detail/:productId' element={<ItemDetailContainer />} />  
           <Route path='*' element={<h1>404 NOT FOUND</h1>} /> 
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> 
     </div>
   );
 }
