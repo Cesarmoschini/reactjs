@@ -8,7 +8,7 @@ const Item = ({id, name, img, price }) => {
     }
 
     return (
-        <article className="CardItem">
+        <article className="CardItem" onClick={handleClick}>
             <header className="Header">
                 <h2 className="ItemHeader">
                     {name}

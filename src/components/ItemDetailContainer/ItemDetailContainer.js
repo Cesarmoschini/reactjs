@@ -1,10 +1,10 @@
 import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react'
-import { getProductById } from '../../asyncMock'
+import { getProductById } from '../../AsyncMock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 
-const ItemDetailContainer = ({ addItem }) => {
+const ItemDetailContainer = () => {
     const [product, setProduct] = useState()
     const [loading, setLoading] = useState(true)
 
@@ -24,7 +24,7 @@ const ItemDetailContainer = ({ addItem }) => {
 
     return(
         <div className='ItemDetailContainer' >
-            <ItemDetail {...product} addItem={addItem}/>
+            <ItemDetail {...product} />
         </div>
     )
 }
