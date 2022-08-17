@@ -42,7 +42,6 @@ const ItemListContainer = ({ greeting }) => {
     return (
         <div onClick={() => console.log('click en itemlistcontainer')}>
             <h1>{`${greeting} ${categoryId || ''}`}</h1>
-            <h2>{title}</h2>
             <ItemList products={products} />
         </div>
     )
