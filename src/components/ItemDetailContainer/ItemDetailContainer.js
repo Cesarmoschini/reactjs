@@ -18,13 +18,10 @@ const ItemDetailContainer = () => {
         })
     }, [productId])
 
-    if(loading) {
-        return <h1>Cargando...</h1>
-    }
 
     return(
         <div className='ItemDetailContainer' >
-            <ItemDetail {...product} />
+            {loading ? <h1>Cargando...</h1> : <ItemDetail {...product} />}
         </div>
     )
 }

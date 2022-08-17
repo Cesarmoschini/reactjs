@@ -8,6 +8,8 @@ const ItemListContainer = ({ greeting }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
+    const [title, setTitle] = useState('Bievenidos al seleccionador de cápsulas')
+
     const { categoryId } = useParams()
 
 
@@ -24,12 +26,21 @@ const ItemListContainer = ({ greeting }) => {
         })  
     }, [categoryId])
 
+    useEffect(() => {
+        setTimeout(() => {
+            setTitle('Elige una cápsula para comenzar con la compra')
+        }, 7000)
+    })
 
+    if(loading) {
+        return <h1>Cargando las cápsulas...</h1>
+    }
 
     return (
-        <div>
+        <div onClick={() => console.log('click en itemlistcontainer')}>
             <h1>{`${greeting} ${categoryId || ''}`}</h1>
-
+            <h2>{title}</h2>
+            {/* <button onClick={(e) => console.log(e)}>boton</button> */}
             <ItemList products={products} />
         </div>
     )
