@@ -1,6 +1,5 @@
 import './ItemDetailContainer.css'
 import { useState, useEffect } from 'react'
-//import { getProductById } from '../../AsyncMock'
 import ItemDetail from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
 import { getDoc, doc } from 'firebase/firestore'
@@ -23,12 +22,16 @@ const ItemDetailContainer = () => {
         }).finally(() => {
             setLoading(false)
         })
+
     }, [productId])
 
+    if(loading) {
+        return <h1>Cargando cápsulas...</h1>
+    }
 
     return(
         <div className='ItemDetailContainer' >
-            {loading ? <h1>Cargando...</h1> : <ItemDetail {...product} />}
+            {loading ? <h1>Cargando cápsulas...</h1> : <ItemDetail {...product} />}
         </div>
     )
 }

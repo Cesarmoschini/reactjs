@@ -44,7 +44,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock, origin
                     Descripción: {description}
                 </p>
                 <p className="Info">
-                    Precio: {price}
+                    Precio: $ {price}
                 </p>
                 <p className="Info">
                     Origen: {origin}

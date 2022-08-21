@@ -1,51 +1,33 @@
 import './ItemListContainer.css'
 import { useState, useEffect } from 'react'
-//import { getProducts, getProductsByCategory} from "../../AsyncMock"
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom' 
-import { getDocs, collection, query, where } from 'firebase/firestore'
-import { db } from '../../services/firebase'
+import { getProducts } from '../../services/firebase/firestore'
+import { useAsync } from '../../hooks/useAsync'
 
 const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
-
-   // const [title, setTitle] = useState('Bievenidos al seleccionador de cápsulas')
-
     const { categoryId } = useParams()
+    const getProductsFromFirestore = () => getProducts(categoryId)
+    const { data, error, isLoading } = useAsync(getProductsFromFirestore, [categoryId])
 
+    if(isLoading) {
+        return <h1>Cargando cápsulas...</h1>
+    }
 
-    useEffect(() => {
-        setLoading(true)
+    if(error) {
+        return <h1>Error</h1>
+    }
 
-        const collectionRef = !categoryId 
-            ? collection(db, 'products')
-            : query(collection(db, 'products'), where('category', '==', categoryId))
-
-        getDocs(collectionRef).then(response => {
-            const productsAdapted = response.docs.map(doc => {
-                const data = doc.data()
-                return { id: doc.id, ...data}
-            })
-            setProducts(productsAdapted)
-        }).catch(error => {
-            console.log(error)
-        }).finally(() => {
-            setLoading(false)
-        })
-    }, [categoryId])
-
-    if(loading) {
-        return <h1>Cargando las cápsulas...</h1>
+    if(data.length === 0) {
+        return categoryId ? <h1>No hay cápsulas en esta categoria {categoryId}</h1> : <h1>No hay cápsulas disponibles</h1>
     }
 
     return (
         <div onClick={() => console.log('click en itemlistcontainer')}>
             <h1>{`${greeting} ${categoryId || ''}`}</h1>
-            <ItemList products={products} />
+            <ItemList products={data} />
         </div>
     )
 }
-
 
 export default ItemListContainer
