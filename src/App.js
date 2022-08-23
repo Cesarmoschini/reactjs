@@ -9,7 +9,6 @@ import { NotificationProvider } from './notification/Notification';
 import Cart from './components/Cart/Cart'
 import Checkout from './components/Checkout/Checkout';
 
-//VER ROUTES
 function App() {
 
   return (
