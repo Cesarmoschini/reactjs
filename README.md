@@ -13,4 +13,4 @@ La route [http://localhost:3000/detail/:productId] muestra el ItemDetailContaine
 Cualquier otra route, muestra el texto '404 NOT FOUND'
 
 ## FUNCIONAMIENTO
-![app_capsulas](https://user-images.githubusercontent.com/97925023/183267080-3c5ec2ae-3f50-4f14-86d8-3b57ab12e2c8.gif)
+![prueba_app_capsulas](https://user-images.githubusercontent.com/97925023/186491664-a3ffc83d-44bf-4501-9eac-9cfdd787831d.gif)
