@@ -8,7 +8,7 @@ const CartWidget = () => {
 
     const quantity = getQuantity()
     return(
-        <Link to='/cart' className="CartWidget">
+        <Link to='/cart' className="CartWidget" style={{textDecoration:"none", color:"brown"}}>
             <img className="Image" src="images/carrito.png" alt='CartWidget'/>
             { quantity }
         </Link>

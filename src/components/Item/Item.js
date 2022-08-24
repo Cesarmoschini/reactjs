@@ -19,7 +19,10 @@ const Item = ({id, name, img, price}) => {
             </picture>
             <section>
                 <p className="Info">
-                    Precio: ${price}
+                    Presentación de 10 unidades
+                </p>
+                <p className="Info">
+                    Precio unitario: ${price}
                 </p>
             </section>           
             <footer className='ItemFooter'>

@@ -1,7 +1,7 @@
 import './ItemCount.css'
 import { useState, useEffect } from 'react'
 
-const ItemCount = ({stock = 0, initial = 1, onAdd})=> {
+const ItemCount = ({stock = 0, initial = 10, onAdd})=> {
    const [quantity, setQuantity] = useState(initial)
 
    useEffect(() => {
@@ -11,25 +11,25 @@ const ItemCount = ({stock = 0, initial = 1, onAdd})=> {
 
    const increment = () => {
        if(quantity < stock) {
-           setQuantity(quantity+1)
+           setQuantity(quantity+10)
        }
    }
 
    const decrement = () => {
-       if(quantity > 1) {
-           setQuantity(quantity - 1)
+       if(quantity > 10) {
+           setQuantity(quantity - 10)
        }     
    }
 
    return(
        <div className='Counter'>          
             <div className='Controls'>
-                <button className="Button" onClick={decrement}>-</button>
+                <button  style={{background:"#aa4704", color:"white"}} className="Button" onClick={decrement}>-</button>
                 <h4 className='Number'>{quantity}</h4>
-                <button className="Button" onClick={increment}>+</button>
+                <button style={{background:"#aa4704", color:"white"}} className="Button" onClick={increment}>+</button>
             </div>
             <div>
-                <button className="Button" onClick={() => onAdd(quantity)}>Agregar al carrito</button>
+                <button style={{background:"#aa4704", color:"white"}} className="Button" onClick={() => onAdd(quantity)}>Agregar al carrito</button>
             </div>
        </div>
    )

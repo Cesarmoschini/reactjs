@@ -16,3 +16,18 @@ export const getProducts = (categoryId) => {
             return error
         })
 }
+
+export const getProducts2 = (originId) => {
+    const collectionRef = !originId 
+        ? collection(db, 'products')
+        : query(collection(db, 'products'), where('origin', '==', originId))
+
+    return getDocs(collectionRef).then(response => {
+        const productsAdapted = response.docs.map(doc => {
+            return createAdaptedProductFromFirestore(doc)
+        })
+        return productsAdapted
+    }).catch(error => {
+        return error
+    })
+}

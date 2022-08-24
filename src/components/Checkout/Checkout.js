@@ -2,7 +2,7 @@ import { useState, useContext } from "react"
 import CartContext from "../../context/CartContext"
 
 import { db } from "../../services/firebase"
-import { addDoc, collection, updateDoc, doc, getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
+import { addDoc, collection, getDocs, query, where, documentId, writeBatch } from "firebase/firestore"
 import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
@@ -70,7 +70,6 @@ const Checkout = () => {
                     navigate('/')
                 }, 3000)
             } else {
-                console.log('Hay productos que estan fuera de stock')
             }
         } catch (error) {
             console.log(error)
@@ -80,17 +79,17 @@ const Checkout = () => {
     }
 
     if(isLoading) {
-        return <h1>Se esta generando tu orden...</h1>
+        return <h1>Se esta generando la orden de compra...</h1>
     }
 
     if(orderCreated) {
-        return <h1>La orden fue creada correctamente, sera redirigido al listado de productos en 3 segundos</h1>
+        return <h1>La orden fue creada correctamente, será redirigido al listado de productos</h1>
     }
 
     return (
         <>
-            <h1>Checkout</h1>
-            <h2>Formulario</h2>
+            <h1>Finalizando la compra</h1>
+            <h3>Haz click en genera la orden de compra para finalizar la compra</h3>
             <button className="Option" onClick={createOrder}>Generar Orden</button>
         </>
     )

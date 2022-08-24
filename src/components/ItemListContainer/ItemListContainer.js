@@ -1,5 +1,4 @@
 import './ItemListContainer.css'
-import { useState, useEffect } from 'react'
 import ItemList from '../ItemList/ItemList'
 import { useParams } from 'react-router-dom' 
 import { getProducts } from '../../services/firebase/firestore'
@@ -23,7 +22,7 @@ const ItemListContainer = ({ greeting }) => {
     }
 
     return (
-        <div onClick={() => console.log('click en itemlistcontainer')}>
+        <div>
             <h1>{`${greeting} ${categoryId || ''}`}</h1>
             <ItemList products={data} />
         </div>
