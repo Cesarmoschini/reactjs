@@ -8,6 +8,8 @@ La route [http://localhost:3000/] muestra la página principal de la web con tod
 
 La route [http://localhost:3000/category/:categoryId] muestra el ItemListContainer filtrado por categoría (Clásicos, Suaves e Intensos)
 
+La route [http://localhost:3000/origin/:originId] muestra el ItemListContainer2 filtrado por origen (Argentina, Francia e Italia)
+
 La route [http://localhost:3000/detail/:productId] muestra el ItemDetailContainer filtrado por cápsulas
 
 Cualquier otra route, muestra el texto '404 NOT FOUND'
